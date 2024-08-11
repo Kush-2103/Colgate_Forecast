@@ -56,9 +56,6 @@ xgb_model = xgb.XGBRegressor(objective='reg:squarederror', n_estimators=100, ran
 xgb_model.fit(X_train, y_train)
 xgb_forecast = xgb_model.predict(X_test)
 
-arima_model = ARIMA(y_train, order=(5, 1, 0))
-arima_fit = arima_model.fit()
-arima_preds = arima_fit.forecast(steps=len(y_test))
 
 # Evaluation using error metrics
 def evaluate_forecasts(test, forecast, model_name):
